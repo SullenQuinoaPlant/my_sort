@@ -6,7 +6,7 @@ def : targets
 ############
 #VARIABLES :
 
-ifndef ROOT
+ifndef NAME
 	ROOT := .
 endif
 
