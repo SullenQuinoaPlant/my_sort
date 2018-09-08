@@ -6,7 +6,7 @@
 /*   By: nmauvari <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/08 11:43:52 by nmauvari          #+#    #+#             */
-/*   Updated: 2018/09/08 11:45:33 by nmauvari         ###   ########.fr       */
+/*   Updated: 2018/09/08 12:28:05 by nmauvari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,29 @@ typedef size_t (*t_sort_randomizer)(size_t);
 /*
 ** functions :
 */
+/*
+** sort array in place
+*/
 int				sort_ar_ip(
 	t_sort_cmp		cmp,
 	t_s_sort_ard	*array);
 
-void			sort_ar_ip_shuffle(
+/*
+** sort shuffled array in place
+*/
+int				sort_ar_shfl_ip(
 	t_sort_cmp			cmp,
 	t_sort_randomizer	rander,
 	t_s_sort_ard		*array);
 
-void			sort_intar_ip(
+int				sort_intar_ip(
 	size_t	ar_sz,
 	int		*ar);
 
-void			sort_intar_ip_shuffle(
+/*
+** rondomizing function defaults to libmyhash:djb2a
+*/
+int				sort_intar_ip_shuffle(
 	t_sort_randomizer	rander,
 	size_t				ar_sz,
 	int					*ar);

@@ -1,6 +1,6 @@
-NAME =
+NAME = mysort
 LIBNAME = lib$(NAME)
-GIT_REPO =
+GIT_REPO = https://github.com/SullenQuinoaPlant/my_sort.git
 
 CALL_DIR := $(shell pwd)
 SRC_DIR := $(ROOT)/sources
@@ -17,7 +17,7 @@ SRCS := $(patsubst %,$(SRC_DIR)/%.c,$(TARGETS))
 INCS := $(wildcard $(INC_DIR)/*.h)
 OBJS := $(patsubst %,$(OBJ_DIR)/%.o,$(TARGETS))
 
-DEPENDENCIES = libft
+DEPENDENCIES = libmyhash libft
 
 CC := gcc
 CFLAGS_MORE =

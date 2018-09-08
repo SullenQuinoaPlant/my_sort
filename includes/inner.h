@@ -6,7 +6,7 @@
 /*   By: nmauvari <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/08 11:43:49 by nmauvari          #+#    #+#             */
-/*   Updated: 2018/09/08 11:43:50 by nmauvari         ###   ########.fr       */
+/*   Updated: 2018/09/08 12:24:55 by nmauvari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include "libft.h"
+# include "libmyhash.h"
 # include "mysort.h" 
 
 typedef enum			e_more_or_less {
