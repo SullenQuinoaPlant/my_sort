@@ -6,7 +6,7 @@
 /*   By: nmauvari <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/08 11:38:45 by nmauvari          #+#    #+#             */
-/*   Updated: 2018/09/08 11:38:52 by nmauvari         ###   ########.fr       */
+/*   Updated: 2018/09/08 11:41:32 by nmauvari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@
 static void					sort_some_more(
 	unsigned char *buf,
 	t_sort_cmp cmp,
-	t_sort_ard ars[]);
+	t_s_sort_ard ars[]);
 
 #endif

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mysort.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nmauvari <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/09/08 11:43:52 by nmauvari          #+#    #+#             */
+/*   Updated: 2018/09/08 11:45:33 by nmauvari         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef MYSORT_H
 # define MYSORT_H
 
@@ -26,7 +38,7 @@ typedef size_t (*t_sort_randomizer)(size_t);
 /*
 ** functions :
 */
-void			sort_ar_ip(
+int				sort_ar_ip(
 	t_sort_cmp		cmp,
 	t_s_sort_ard	*array);
 
