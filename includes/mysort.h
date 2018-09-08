@@ -42,4 +42,6 @@ void			sort_intar_ip_shuffle(
 	size_t				ar_sz,
 	int					*ar);
 
+# define SORT_SYS_ERR -1
+# define SORT_SUCCESS 0
 #endif
