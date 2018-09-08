@@ -6,18 +6,12 @@
 /*   By: nmauvari <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/08 11:16:27 by nmauvari          #+#    #+#             */
-/*   Updated: 2018/09/08 11:23:04 by nmauvari         ###   ########.fr       */
+/*   Updated: 2018/09/08 11:39:43 by nmauvari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static void					sort_some_more(
-	unsigned char *buf,
-	t_sort_cmp cmp,
-	t_sort_ord ars[])
-{
-	sort(buf, cmp, &ars[e_more]);
-	sort(buf, cmp, &ars[e_less]);
-}
+#include "inner.h"
+#include "sort_some_more_ar_ip.h"
 
 /*
 ** swaps on less_than to shorten the comparison time (maybe)
@@ -56,15 +50,24 @@ static void					sort(
 	sort_some_more(buf, cmp, sub_ars);
 }
 
+static void					sort_some_more(
+	unsigned char *buf,
+	t_sort_cmp cmp,
+	t_sort_ard ars[])
+{
+	sort(buf, cmp, &ars[e_more]);
+	sort(buf, cmp, &ars[e_less]);
+}
+
 void						sort_ar_ip(
 	t_sort_cmp cmp,
 	t_s_sort_ard *ar)
 {
 	unsigned char	*buf;
 
-	if ((buf = malloc(ar->type_sz)))
-		sort(buf, cmp,  ar);
-	else
+	if (!(buf = malloc(ar->type_sz)))
 		return (SORT_SYS_ERR);
+	sort(buf, cmp, ar);
+	free(buf);
 	return (SORT_SUCCESS);
 }

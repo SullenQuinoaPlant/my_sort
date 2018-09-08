@@ -1,8 +1,10 @@
 #ifndef MYSORT_H
 # define MYSORT_H
 
+# include <stddef.h>
+
 /*
- * compare *firstarg to *secondarg
+** compare *firstarg to *secondarg
 ** return :
 **  < 0 if *firstarg < *secondarg
 **  0   if *firstarg = *secondarg

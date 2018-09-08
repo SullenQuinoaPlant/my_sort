@@ -1,6 +1,7 @@
 #ifndef INNER_H
 # define INNER_H
 
+# include "libft.h"
 # include "mysort.h" 
 
 typedef enum			e_more_or_less {
