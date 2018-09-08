@@ -12,7 +12,7 @@ typedef enum			e_more_or_less {
 void					swap(
 	void		*a,
 	void		*b,
-	void		*buff,
+	void		*buf,
 	size_t		sz);
 
 #endif

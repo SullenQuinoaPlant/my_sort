@@ -8,6 +8,9 @@
 **  0   if *firstarg = *secondarg
 **  > 0 if *firstarg > *secondarg
 */
+# define SORT_LT -1
+# define SORT_EQ 0
+# define SORT_GT 1
 typedef int (*t_sort_cmp)(void *, void *);
 
 typedef struct	s_sort_array_description {
