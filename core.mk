@@ -8,8 +8,7 @@ endif
 all : $(NAME)
 
 .PHONY : $(NAME)
-$(NAME) : $(OUT_DIR_LIB)/$(NAME).a
-
+$(NAME) : $(OUT_DIR_LIB)/$(LIBNAME).a
 
 $(OUT_DIR_LIB)/$(LIBNAME).a : $(OBJS)
 	-ar rcs $@ $<

@@ -6,7 +6,7 @@
 /*   By: nmauvari <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/08 12:17:39 by nmauvari          #+#    #+#             */
-/*   Updated: 2018/09/08 12:17:40 by nmauvari         ###   ########.fr       */
+/*   Updated: 2018/09/09 08:25:56 by nmauvari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@ void			swap(
 {
 	ft_memcpy(buff, a, sz);
 	ft_memcpy(a, b, sz);
-	ft_memcpy(b, buff, sz)
+	ft_memcpy(b, buff, sz);
 }

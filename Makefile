@@ -6,10 +6,9 @@ def : targets
 ############
 #VARIABLES :
 
-ifndef NAME
+ifndef ROOT
  ROOT := .
 endif
-
 include $(ROOT)/make_vars.mk
 
 
@@ -26,12 +25,10 @@ include $(SRC_DIR)/Makefile
 
 #######
 #LIBS :
-
 include $(LIB_DIR)/Makefile
 
 ########
 #TESTS :
-	
 include $(TEST_DIR)/Makefile
 
 

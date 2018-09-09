@@ -6,7 +6,7 @@
 /*   By: nmauvari <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/08 12:12:28 by nmauvari          #+#    #+#             */
-/*   Updated: 2018/09/08 12:33:27 by nmauvari         ###   ########.fr       */
+/*   Updated: 2018/09/09 08:25:41 by nmauvari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int						sort_ar_shfl_ip(
 	t_sort_cmp cmp,
-	t_sort_randomizer rander,
+	t_sort_randomizer rand,
 	t_s_sort_ard *ar)
 {
-	void *const		ar = ar->ar;
+	void *const		frst = ar->ar;
 	size_t const	sz = ar->type_sz;
 	size_t const	count = ar->elem_count;
 	unsigned char	*b;
@@ -25,11 +25,11 @@ int						sort_ar_shfl_ip(
 
 	if (!(b = malloc(sz)))
 		return (SORT_SYS_ERR);
-	if (!rander)
-		rander = &def_rander;
+	if (!rand)
+		rand = &def_rander;
 	i = -1;
 	while (++i < count)
-		swap(ar + i * sz, ar + (rand(i) % count) * sz, b, sz);
-	ft_cleanfree(b);
-	sort_ar_shfl_ip(cmp, ar);
+		swap(frst + i * sz, frst + (rand(i) % count) * sz, b, sz);
+	ft_cleanfree(b, sz);
+	return (sort_ar_ip(cmp, ar));
 }

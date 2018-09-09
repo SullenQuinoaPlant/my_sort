@@ -1,6 +1,6 @@
 ifndef ROOT
-	ROOT = ..
-	include $(ROOT)/Makefile
+ ROOT = ..
+ include $(ROOT)/Makefile
 endif
 
 
@@ -27,6 +27,15 @@ libmyfloatingpoint :
 	git clone \
 		--single-branch \
 		-b release https://github.com/SullenQuinoaPlant/my_floatingpoint.git \
+		--depth 1 \
+		$(LIB_DIR)/$@/
+	$(BUILD_LIB)
+
+
+libmyhash :
+	git clone \
+		--single-branch \
+		-b release https://github.com/SullenQuinoaPlant/my_hash.git\
 		--depth 1 \
 		$(LIB_DIR)/$@/
 	$(BUILD_LIB)

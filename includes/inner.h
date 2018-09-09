@@ -6,7 +6,7 @@
 /*   By: nmauvari <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/08 11:43:49 by nmauvari          #+#    #+#             */
-/*   Updated: 2018/09/08 12:24:55 by nmauvari         ###   ########.fr       */
+/*   Updated: 2018/09/09 08:24:02 by nmauvari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ typedef enum			e_more_or_less {
 	e_more,
 	e_mol_sz
 }						t_e_mol;
+
+size_t					def_rander(
+	size_t		in);
 
 void					swap(
 	void		*a,

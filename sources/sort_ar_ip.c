@@ -6,7 +6,7 @@
 /*   By: nmauvari <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/08 11:16:27 by nmauvari          #+#    #+#             */
-/*   Updated: 2018/09/08 12:07:17 by nmauvari         ###   ########.fr       */
+/*   Updated: 2018/09/09 08:19:10 by nmauvari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,12 @@ int							sort_ar_ip(
 	t_sort_cmp cmp,
 	t_s_sort_ard *ar)
 {
+	size_t const	sz = ar->type_sz;
 	unsigned char	*buf;
 
-	if (!(buf = malloc(ar->type_sz)))
+	if (!(buf = malloc(sz)))
 		return (SORT_SYS_ERR);
 	sort(buf, cmp, ar);
-	ft_cleanfree(buf);
+	ft_cleanfree(buf, sz);
 	return (SORT_SUCCESS);
 }
