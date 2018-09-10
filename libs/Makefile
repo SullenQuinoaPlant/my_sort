@@ -43,6 +43,6 @@ libmyhash :
 
 .PHONY : clean-lib*
 clean-lib% :
-	-rm $(LIB_DIR)/lib$*
+	-rm -rf $(LIB_DIR)/lib$*
 	-rm $(LIBS_I)/lib$*.h
 	-rm $(LIBS_L)/lib$*.a
