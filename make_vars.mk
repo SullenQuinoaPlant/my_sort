@@ -19,7 +19,8 @@ OBJS := $(patsubst %,$(OBJ_DIR)/%.o,$(TARGETS))
 
 DEPENDENCIES = libmyhash libft
 
-CC := gcc
+#CC := gcc
+CC := /Users/nmauvari/Applications/GCC/bin/gcc-8.1
 CFLAGS_MORE =
 ifndef CFLAGS
 	CFLAGS := -Wall -Wextra -Werror -I $(INC_DIR)
