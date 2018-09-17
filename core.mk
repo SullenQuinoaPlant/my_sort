@@ -5,19 +5,21 @@ endif
 
 
 .PHONY : all
-all : $(NAME)
+all : library header
 
-.PHONY : $(NAME)
-$(NAME) : $(OUT_DIR_LIB)/$(LIBNAME).a
+.PHONY : library
+library : $(OUT_DIR_LIB)/$(LIBNAME).a
+
+.PHONY : header
+header :
+	sed\
+		-e '4s@\(mysort.h\)   @lib\1@'\
+		-e '13,14s@M@LIB&@'\
+		$(INC_DIR)/$(NAME).h > $(OUT_DIR_H)/$(LIBNAME).h
 
 $(OUT_DIR_LIB)/$(LIBNAME).a : $(OBJS)
 	-ar rcs $@ $<
-	cp $(INC_DIR)/$(NAME).h $(OUT_DIR_H)/$(LIBNAME).h
-	sed -e'13s@ @ LIB@' -e'14s@\( define \)@\1LIB@' -i "" $(OUT_DIR_H)/$(LIBNAME).h
 
-
-
-#compilation :
 $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS)\
 		-I $(LIBS_I)\

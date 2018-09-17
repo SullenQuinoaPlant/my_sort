@@ -37,7 +37,7 @@ cmocka :
 	@if $(CC) $(CFLAGS_UTEST)\
 		-I $(LIBS_I) -L $(LIBS_L)\
 	 	$(TEST_DIR)/cmocka/check_install.c\
-		-lcmocka -o test.o\
+		-lcmocka_shared -o test.o\
 		-Wl,-rpath=$$(readlink -e $(LIBS_L))\
 		&& ./test.o .;\
 	then\
@@ -57,8 +57,10 @@ $(LIBS_L)/$(LIBNAME).a
 		-I $(LIBS_I) -I $(SRC_DIR)\
 		$<\
 		-L $(LIBS_L)\
-		-lcmocka\
-		-l$(NAME) -lmyfloatingpoint -lft\
+		-lcmocka_shared\
+		-l$(NAME)\
+		$(patsubst lib%,-l%,$(DEPENDENCIES))\
+		-lmyhash -lft\
 		-o $@\
 		-Wl,-rpath=$$(readlink -e $(LIBS_L))\
 
