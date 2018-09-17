@@ -12,7 +12,7 @@ build_dependencies : $(DEPENDENCIES)
 clean-dependencies : $(patsubst %,clean-%,$(DEPENDENCIES))
 
 .PHONY : re-dependencies
-re-dependencies : clean-dependencies build-dependencies
+re-dependencies : clean-dependencies build-dependencies ignore_libs
 
 define BUILD_LIB
 	$(MAKE) -C $(LIB_DIR)/$@/ 
@@ -45,3 +45,9 @@ clean-lib% :
 
 .PHONY : re-lib*
 re-lib% : clean-lib% lib%
+
+.PHONY : ignore_libs
+ignore_libs : $(LIB_DIR)/.gitignore 
+
+$(LIB_DIR)/.gitignore : $(ROOT)/make_vars.mk
+	echo "$(DEPENDENCIES)" | tr ' ' '\n' >$@
