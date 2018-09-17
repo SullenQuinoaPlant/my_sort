@@ -18,7 +18,7 @@ header :
 		$(INC_DIR)/$(NAME).h > $(OUT_DIR_H)/$(LIBNAME).h
 
 $(OUT_DIR_LIB)/$(LIBNAME).a : $(OBJS)
-	-ar rcs $@ $<
+	-ar rcs $@ $^
 
 $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS)\

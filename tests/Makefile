@@ -70,10 +70,9 @@ $(LIBS_L)/$(LIBNAME).a
 		-I $(LIBS_I) -I $(SRC_DIR)\
 		$<\
 		-L $(LIBS_L)\
-		-lcmocka_shared\
+		$(patsubst lib%,-l%,$(TEST_DEPENDENCIES))\
 		-l$(NAME)\
 		$(patsubst lib%,-l%,$(DEPENDENCIES))\
-		-lmyhash -lft\
 		-o $@\
 		-Wl,-rpath=$$(readlink -e $(LIBS_L))\
 
