@@ -13,6 +13,7 @@
 #ifndef AUX_H
 # define AUX_H
 
-# include "aux.h"
+# include "inner.h"
+# include "auxilliaries.h"
 
 #endif

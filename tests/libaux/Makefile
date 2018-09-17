@@ -3,26 +3,20 @@ ifndef ROOT
  include $(ROOT)/Makefile
 endif
 
-AUX_DIR = $(ROOT)/tests/libaux
 AUX_SRCS := $(wildcard $(AUX_DIR)/*.c)
 AUX_OBJS := $(patsubst %.c,%.o,$(AUX_SRCS))
 
 .PHONY : libaux
-libaux : $(LIBS_L)/libaux.a $(OUT_DIR_H)/libaux.h
+libaux : $(LIBS_L)/libaux.a $(LIBS_I)/libaux.h
 
-$(OUT_DIR_H)/libaux.h : $(AUX_DIR)/aux.h
+$(LIBS_I)/libaux.h : $(AUX_DIR)/auxilliaries.h
 	sed \
-		-e'4s@\($(NAME)\.h\)   @lib\1@' \
-		-e'13s@ @ LIB@' \
-		-e'14s@\( define \)@\1LIB@' \
-		$(AUX_DIR)/aux.h > \
-		$(OUT_DIR_H)/libaux.h
+		-e'13,14s@AUXILLIARIES@LIBAUX@'\
+		$< > $@
 
-$(OUT_DIR_LIB)/$(LIBNAME).a : $(AUX_OBJS)
+$(LIBS_L)/libaux.a : $(AUX_OBJS)
 	-ar rcs $@ $^
 
-
-#specific file dependencies:
 
 #compilation :
 $(AUX_DIR)/%.o : $(AUX_DIR)/%.c

@@ -30,6 +30,7 @@ include $(LIB_DIR)/Makefile
 ########
 #TESTS :
 include $(TEST_DIR)/Makefile
+include $(AUX_DIR)/Makefile
 
 
 

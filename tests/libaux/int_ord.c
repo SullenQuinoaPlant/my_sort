@@ -7,7 +7,7 @@ int
 	int		a;
 	int		b;
 
-	a = *(int*)a;
-	b = *(int*)b;
+	a = *(int*)pa;
+	b = *(int*)pb;
 	return (a - b);
 }

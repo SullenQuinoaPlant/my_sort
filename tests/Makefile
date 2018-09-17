@@ -11,9 +11,23 @@ CFLAGS_UTEST = -fno-builtin -g
 CFLAGS_UTEST += $(CFLAGS_MORE) #$(CFLAGS) were annoying the hell out of me
 
 
+TEST_DEPENDENCIES = libaux libcmocka_shared
+
+
+
+.PHONY : tests_all
+tests_all : build_test_dependencies clean-tests build_tests run_tests
+
 
 ############
 #BUILD TESTS
+
+.PHONY : build_test_dependencies
+build_test_dependencies : $(TEST_DEPENDENCIES)
+
+.PHONY : libcmocka_shared
+libcmocka_shared :
+	$(MAKE) -C $(TEST_DIR)/cmocka/;\
 
 .PHONY : build_tests
 build_tests\
@@ -41,10 +55,9 @@ cmocka :
 		-Wl,-rpath=$$(readlink -e $(LIBS_L))\
 		&& ./test.o .;\
 	then\
-		echo "cmocka already installed";\
+		echo "cmocka installed";\
 	else\
-		echo "installing cmocka";\
-		$(MAKE) -C $(TEST_DIR)/cmocka/;\
+		echo "instal cmocka";\
 	fi
 	-@rm ./test.o
 
@@ -90,16 +103,10 @@ run_tests : $(EXECUTION_STAMPS)
 ###############
 #MISCELLANEOUS:
 
-.PHONY : all_unit_tests aut
-all_unit_tests aut : clean-tests ut
-
-
-
 .PHONY : clean-tests
 clean-tests :
 	-rm $(TEST_DIR)/*.o
 	-rm $(TEST_DIR)/*.stamp
-
 
 
 .PHONY : list_tests

@@ -19,8 +19,8 @@ OBJS := $(patsubst %,$(OBJ_DIR)/%.o,$(TARGETS))
 
 DEPENDENCIES = libmyhash libft
 
-#CC := gcc
-CC := /Users/nmauvari/Applications/GCC/bin/gcc-8.1
+CC := gcc
+#CC := /Users/nmauvari/Applications/GCC/bin/gcc-8.1
 CFLAGS_MORE =
 ifndef CFLAGS
 	CFLAGS := -Wall -Wextra -Werror -I $(INC_DIR)
@@ -28,4 +28,5 @@ endif
 CFLAGS += $(CFLAGS_MORE)
 
 TEST_DIR := $(ROOT)/tests
+AUX_DIR := $(TEST_DIR)/libaux
 RELEAS_DIR := $(ROOT)/release
