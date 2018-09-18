@@ -14,7 +14,7 @@
 #include "sort_ar_ip.h"
 
 /*
-** swaps on less_than to shorten the comparison time (maybe)
+** ft_memswaps on less_than to shorten the comparison time (maybe)
 **  -> only one bit to check for >= on two's complement machine
 */
 
@@ -36,7 +36,7 @@ static void					sort(
 	while (p > stop)
 		if ((*cmp)(p, pivot) < SORT_EQ)
 		{
-			swap(p, stop, buf, sz);
+			ft_memswap(p, stop, buf, sz);
 			sub_ars[e_less].elem_count++;
 			stop += sz;
 		}
@@ -45,7 +45,7 @@ static void					sort(
 	if ((*cmp)(p, pivot) < SORT_EQ)
 		sub_ars[e_less].elem_count++;
 	else
-		swap(p, pivot, buf, sz);
+		ft_memswap(p, pivot, buf, sz);
 	sub_ars[e_more].elem_count -= sub_ars[e_less].elem_count;
 	sort_some_more(buf, cmp, sub_ars);
 }

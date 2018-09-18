@@ -29,7 +29,7 @@ int						sort_ar_shfl_ip(
 		rand = &def_rander;
 	i = -1;
 	while (++i < count)
-		swap(frst + i * sz, frst + (rand(i) % count) * sz, b, sz);
+		ft_memswap(frst + i * sz, frst + (rand(i) % count) * sz, b, sz);
 	ft_cleanfree(b, sz);
 	return (sort_ar_ip(cmp, ar));
 }
