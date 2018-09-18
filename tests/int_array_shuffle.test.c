@@ -8,12 +8,13 @@
 
 int	declare_tests_and_run(int all_of, char *these[])
 {
-	int	*ref_ar;
+	int		*ref_ar;
+	size_t	i;
 
 	#define SZ 10000
 	#define SZM1 (SZ - 1)
 	ref_ar = ((int[SZ]){});
-	for (size_t i = 0; i < SZ; i++)
+	for (i = 0; i < SZ; i++)
 		ref_ar[i] = i;
 	
 	T(ar10000_shuffle,
@@ -55,7 +56,7 @@ int	declare_tests_and_run(int all_of, char *these[])
 	#undef SZ
 	#define SZ 100000
 	ref_ar = ((int[SZ]){});
-	for (size_t i = 0; i < SZ; i++)
+	for (i = 0; i < SZ; i++)
 		ref_ar[i] = i;
 	
 	T(rev_ar100000_shuffle,

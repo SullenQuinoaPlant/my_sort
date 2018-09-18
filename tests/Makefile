@@ -77,10 +77,6 @@ $(LIBS_L)/$(LIBNAME).a
 		-Wl,-rpath=$$(readlink -e $(LIBS_L))\
 
 
-%.test.c : $(TEST_DIR)/cmocka/my_macro_overlay.h
-	@:
-
-
 
 ############
 #RUN TESTS :

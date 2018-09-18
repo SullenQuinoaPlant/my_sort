@@ -8,8 +8,10 @@
 
 int	declare_tests_and_run(int all_of, char *these[])
 {
-	#define SZ 3 
 	int			*ref_ar;
+	size_t		i;
+
+	#define SZ 3 
 	ref_ar = ((int[SZ]){0, 1, 2});
 	#define SZM1 (SZ - 1)
 
@@ -74,7 +76,7 @@ int	declare_tests_and_run(int all_of, char *these[])
 	#undef SZ
 	#define SZ 10000
 	ref_ar = ((int[SZ]){});
-	for (size_t i = 0; i < SZ; i++)
+	for (i = 0; i < SZ; i++)
 		ref_ar[i] = i;
 	
 	T(medium_ar,
