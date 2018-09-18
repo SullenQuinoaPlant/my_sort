@@ -18,7 +18,7 @@
 **  -> only one bit to check for >= on two's complement machine
 */
 
-static void					sort(
+static void					here_sort(
 	unsigned char *buf,
 	t_sort_cmp cmp,
 	t_s_sort_ard *ar)
@@ -55,8 +55,8 @@ static void					sort_some_more(
 	t_sort_cmp cmp,
 	t_s_sort_ard ars[])
 {
-	sort(buf, cmp, &ars[e_more]);
-	sort(buf, cmp, &ars[e_less]);
+	here_sort(buf, cmp, &ars[e_more]);
+	here_sort(buf, cmp, &ars[e_less]);
 }
 
 int							sort_ar_ip(
@@ -68,7 +68,7 @@ int							sort_ar_ip(
 
 	if (!(buf = malloc(sz)))
 		return (SORT_SYS_ERR);
-	sort(buf, cmp, ar);
+	here_sort(buf, cmp, ar);
 	ft_cleanfree(buf, sz);
 	return (SORT_SUCCESS);
 }
