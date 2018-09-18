@@ -19,7 +19,7 @@ int						sort_ar_shfl_ip(
 {
 	void *const		frst = ar->ar;
 	size_t const	sz = ar->type_sz;
-	size_t const	count = ar->elem_count;
+	size_t const	count = ar->ar_sz;
 	unsigned char	*b;
 	size_t			i;
 

@@ -29,7 +29,7 @@ typedef int (*t_sort_cmp)(void *, void *);
 
 typedef struct	s_sort_array_description {
 	size_t	type_sz;
-	size_t	elem_count;
+	size_t	ar_sz;
 	void	*ar;
 }				t_s_sort_ard;
 
