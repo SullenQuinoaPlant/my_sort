@@ -31,11 +31,11 @@ int	declare_tests_and_run(int all_of, char *these[])
 		time(&time_1);
 		sort_ar_shfl_ip(&int_ord, 0, &ard);
 		time(&time_2);
-		printf("sorted in %llu\n", (unsigned long long)(time_2 - time_1));
+		printf("sorted in %llu\nseconds", (unsigned long long)(time_2 - time_1));
 		assert_memory_equal(ar, ref_ar, SZ * sizeof(int));
 	)
 
-	T(revv_ar10000_noshuffle,
+	T(rev_ar10000_noshuffle,
 		int				ar[SZ];
 		size_t			i;
 		t_s_sort_ard	ard;
@@ -49,7 +49,7 @@ int	declare_tests_and_run(int all_of, char *these[])
 		time(&time_1);
 		sort_ar_ip(&int_ord, &ard);
 		time(&time_2);
-		printf("sorted in %llu\n", (unsigned long long)(time_2 - time_1));
+		printf("sorted in %llu\nseconds", (unsigned long long)(time_2 - time_1));
 		assert_memory_equal(ar, ref_ar, SZ * sizeof(int));
 	)
 
@@ -73,7 +73,7 @@ int	declare_tests_and_run(int all_of, char *these[])
 		time(&time_1);
 		sort_ar_shfl_ip(&int_ord, 0, &ard);
 		time(&time_2);
-		printf("sorted in %llu\n", (unsigned long long)(time_2 - time_1));
+		printf("sorted in %llu\nseconds", (unsigned long long)(time_2 - time_1));
 		assert_memory_equal(ar, ref_ar, SZ * sizeof(int));
 	)
 
@@ -91,7 +91,7 @@ int	declare_tests_and_run(int all_of, char *these[])
 		time(&time_1);
 		sort_ar_ip(&int_ord, &ard);
 		time(&time_2);
-		printf("sorted in %llu\n", (unsigned long long)(time_2 - time_1));
+		printf("sorted in %llu\nseconds", (unsigned long long)(time_2 - time_1));
 		assert_memory_equal(ar, ref_ar, SZ * sizeof(int));
 	)
 	return(run_test_arr(all_of, these));
