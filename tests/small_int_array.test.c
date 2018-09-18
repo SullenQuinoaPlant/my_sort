@@ -9,6 +9,8 @@
 int	declare_tests_and_run(int all_of, char *these[])
 {
 	#define SZ 20
+	#define SZM1 SZ - 1
+
 	int			*ref_ar_20;
 	ref_ar_20 = ((int[SZ]){
 			0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
@@ -24,7 +26,7 @@ int	declare_tests_and_run(int all_of, char *these[])
 
 		for (i = 0; i < SZ; i++)
 			ar[i] = i;
-		ard = ((t_s_sort_ard){sizeof(int), SZ, ar});
+		ard = ((t_s_sort_ard){sizeof(int), ar, ar + SZM1});
 		time(&time_1);
 		sort_ar_ip(&int_ord, &ard);
 		time(&time_2);
@@ -42,7 +44,7 @@ int	declare_tests_and_run(int all_of, char *these[])
 
 		for (i = 0; i < SZ; i++)
 			ar[i] = SZ - i - 1;
-		ard = ((t_s_sort_ard){sizeof(int), SZ, ar});
+		ard = ((t_s_sort_ard){sizeof(int), ar, ar - SZM1});
 		time(&time_1);
 		sort_ar_ip(&int_ord, &ard);
 		time(&time_2);

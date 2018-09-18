@@ -23,41 +23,39 @@ static void					here_sort(
 	t_s_sort_ard *ar)
 {
 	size_t const	sz = ar->type_sz;
-	void *const		pivot = ar->ar + (ar->ar_sz - 1) * sz;
-	size_t			count;
+	void *const		pivot = ar->last;
 	void			*stop;
 	void			*p;
 
-	count = 1;
-	stop = ar->ar;
+	stop = ar->first;
 	p = pivot - sz;
 	while (p > stop)
 		if ((*cmp)(p, pivot) < SORT_EQ)
 		{
 			ft_memswap(p, stop, buf, sz);
 			stop += sz;
-			count++;
 		}
 		else
 			p -= sz;
-	if ((*cmp)(p, pivot) == SORT_GT)
+	if ((*cmp)(p, pivot) < SORT_EQ)
+		p += sz;
+	else
 		ft_memswap(p, pivot, buf, sz);
-	if (count > 1)
-		here_sort(buf, cmp, &(t_s_sort_ard){sz, count, ar->ar});
-	if ((count = ar->ar_sz - count) > 1)
-		here_sort(buf, cmp, &(t_s_sort_ard){sz, count, p});
+	if (ar->last - p)
+		here_sort(buf, cmp, &(t_s_sort_ard){sz, p, ar->last});
+	if (p > ar->first + sz)
+		here_sort(buf, cmp, &(t_s_sort_ard){sz, ar->first, p - sz});
 }
 
 int							sort_ar_ip(
 	t_sort_cmp cmp,
 	t_s_sort_ard *ar)
 {
-	size_t const	sz = ar->type_sz;
 	unsigned char	*buf;
 
-	if (!(buf = malloc(sz)))
+	if (!(buf = malloc(ar->type_sz)))
 		return (SORT_SYS_ERR);
 	here_sort(buf, cmp, ar);
-	ft_cleanfree(buf, sz);
+	ft_cleanfree(buf, ar->type_sz);
 	return (SORT_SUCCESS);
 }

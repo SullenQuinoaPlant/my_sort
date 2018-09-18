@@ -29,8 +29,8 @@ typedef int (*t_sort_cmp)(void *, void *);
 
 typedef struct	s_sort_array_description {
 	size_t	type_sz;
-	size_t	ar_sz;
-	void	*ar;
+	void	*first;
+	void	*last;
 }				t_s_sort_ard;
 
 typedef size_t (*t_sort_randomizer)(size_t);
