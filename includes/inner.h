@@ -27,10 +27,4 @@ typedef enum			e_more_or_less {
 size_t					def_rander(
 	size_t		in);
 
-void					swap(
-	void		*a,
-	void		*b,
-	void		*buf,
-	size_t		sz);
-
 #endif
