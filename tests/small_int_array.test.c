@@ -11,7 +11,7 @@ int	declare_tests_and_run(int all_of, char *these[])
 	#define SZ 3 
 	int			*ref_ar;
 	ref_ar = ((int[SZ]){0, 1, 2});
-	#define SZM1 (sizeof(int) * (SZ - 1))
+	#define SZM1 (SZ - 1)
 
 	T(tiny_ar,
 		int				ar[SZ];
@@ -64,7 +64,48 @@ int	declare_tests_and_run(int all_of, char *these[])
 
 		for (i = 0; i < SZ; i++)
 			ar[i] = SZ - i - 1;
-		ard = ((t_s_sort_ard){sizeof(int), ar, ar - SZM1});
+		ard = ((t_s_sort_ard){sizeof(int), ar, ar + SZM1});
+		time(&time_1);
+		sort_ar_ip(&int_ord, &ard);
+		time(&time_2);
+		printf("sorted in %llu\n", (unsigned long long)(time_2 - time_1));
+		assert_memory_equal(ar, ref_ar, SZ * sizeof(int));
+	)
+	#undef SZ
+	#define SZ 10000
+	ref_ar = ((int[SZ]){});
+	for (size_t i = 0; i < SZ; i++)
+		ref_ar[i] = i;
+	
+	T(medium_ar,
+		int				ar[SZ];
+		size_t			i;
+		t_s_sort_ard	ard;
+
+		time_t			time_1;
+		time_t			time_2;
+
+		for (i = 0; i < SZ; i++)
+			ar[i] = i;
+		ard = ((t_s_sort_ard){sizeof(int), ar, ar + SZM1});
+		time(&time_1);
+		sort_ar_ip(&int_ord, &ard);
+		time(&time_2);
+		printf("sorted in %llu\n", (unsigned long long)(time_2 - time_1));
+		assert_memory_equal(ar, ref_ar, SZ * sizeof(int));
+	)
+
+	T(medium_rev_ar,
+		int				ar[SZ];
+		size_t			i;
+		t_s_sort_ard	ard;
+
+		time_t			time_1;
+		time_t			time_2;
+
+		for (i = 0; i < SZ; i++)
+			ar[i] = SZ - i - 1;
+		ard = ((t_s_sort_ard){sizeof(int), ar, ar + SZM1});
 		time(&time_1);
 		sort_ar_ip(&int_ord, &ard);
 		time(&time_2);
